@@ -1,0 +1,10 @@
+vvblanguage: node_js
+node_js:
+  - "4.2"
+
+before_script:
+  - npm install
+  - bower install
+
+script: grunt
+

@@ -1,0 +1,73 @@
+{
+    "unused": true,
+    "undef": true,
+    "latedef": "nofunc",
+    "noarg": true,
+    "indent": 4,
+    "forin": true,
+    "noempty": true,
+    "quotmark": true,
+    "maxdepth": 7,
+    "maxstatements": 50,
+    "maxerr": 100,
+    "eqeqeq": true,
+    "strict": true,
+    "camelcase": false,
+    "newcap": true,
+    "nonew": true,
+    "immed": true,
+    "es3": false,
+    "browser": true,
+    "devel": true,
+    "nonstandard": true,
+    "globals": {
+        "requirejs": false,
+        "define": false,
+		"browser": false,
+		"by": false,
+		"element": false
+    },
+
+    "overrides":  {
+        "**/*-test.js":  {
+            "globals":  {
+                "requirejs": false,
+                "define": false,
+                "jasmine": false,
+                "describe": false,
+                "xdescribe": false,
+                "it": false,
+                "xit": false,
+                "beforeEach": false,
+                "afterEach": false,
+                "expect": false,
+                "pending": false,
+                "spyOn": false,
+                "addCustomEqualityTester": false,
+                "jsApiReporter": false,
+                "module": false,
+                "inject": false
+            }
+        },
+		"**/*-integrationTest.js": {
+            "globals":  {
+                "requirejs": false,
+                "define": false,
+                "jasmine": false,
+                "describe": false,
+                "xdescribe": false,
+                "it": false,
+                "xit": false,
+                "beforeEach": false,
+                "afterEach": false,
+                "expect": false,
+                "pending": false,
+                "spyOn": false,
+                "addCustomEqualityTester": false,
+                "jsApiReporter": false,
+                "module": false,
+                "inject": false
+            }
+        }
+    }
+}
