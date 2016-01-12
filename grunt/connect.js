@@ -6,18 +6,19 @@ module.exports = {
       base: 'build',
       protocol: 'http',
       livereload: true,
+      open: {
+        target: '<%= connect.server.options.protocol %>://<%= connect.server.options.hostname %>:<%= connect.server.options.port %>'
+      },
       debug: true,
       middleware: function (connect, options) {
         if (!Array.isArray(options.base)) {
           options.base = [options.base];
         }
-
-        var middlewares = [];
-
-        middlewares.push(require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']));
-        middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
         
-        return middlewares;
+        return [
+          require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
+          require('grunt-connect-proxy/lib/utils').proxyRequest
+        ];
       }
     },
     proxies: [

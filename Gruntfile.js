@@ -39,7 +39,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('compile', [
     'less:compile', 'copy:build_i18n',
-    'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile'
   ]);
 
   grunt.registerTask('test', [
@@ -48,11 +48,11 @@ module.exports = function (grunt) {
    
   grunt.registerTask('dev', [
     'build', 'serve', 'delta'
-    ]);
+  ]);
 
   grunt.registerTask('serve', [
-    'configureProxies:server', 'connect:server', 'connect:serverDynamic'
-    ]);
+    'configureProxies:server', 'connect:server'
+  ]);
 
   function filterForJS (files) {
     return files.filter(function (file) {
