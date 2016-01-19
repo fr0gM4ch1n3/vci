@@ -15,10 +15,26 @@ module.exports = {
           options.base = [options.base];
         }
         
-        return [
-          require('connect-modrewrite')(['^[^\\.]*$ /index.html [L]']),
-          require('grunt-connect-proxy/lib/utils').proxyRequest
-        ];
+         var middlewares = [];
+
+        // Setup the proxy
+        middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
+
+        // Setup the HTML5 rewrite
+        middlewares.push(require('connect-modrewrite')(['!(\\..+)$ / [L]']));
+
+
+        // Serve static files.
+        // options.base.forEach(function (base) {
+        middlewares.push(require('serve-static')('build'));
+        // });
+
+        // Make directory browse-able.
+        // var directory = options.directory || options.base[options.base.length - 1];
+        // middlewares.push(connect.directory(directory));
+
+        return middlewares;
+
       }
     },
     proxies: [
