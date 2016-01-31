@@ -6,7 +6,8 @@ angular.module('ngVCI', [
   'ngSanitize',
   'ui.router.state',
   'ui.bootstrap',
-  'ngVCI.home'
+  'ngVCI.home',
+  'ngVCI.login'
 ])
 
 .config(['$locationProvider', function ($locationProvider) {
@@ -17,7 +18,7 @@ angular.module('ngVCI', [
 }])
 
 .config(['$urlRouterProvider', function ($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/login');
 }])
 
 .config(['$translateProvider', function ($translateProvider) {
