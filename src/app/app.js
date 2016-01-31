@@ -7,7 +7,8 @@ angular.module('ngVCI', [
   'ui.router.state',
   'ui.bootstrap',
   'ngVCI.home',
-  'ngVCI.login'
+  'ngVCI.login',
+  'ngVCI.singup'
 ])
 
 .config(['$locationProvider', function ($locationProvider) {
@@ -18,7 +19,7 @@ angular.module('ngVCI', [
 }])
 
 .config(['$urlRouterProvider', function ($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/singup');
 }])
 
 .config(['$translateProvider', function ($translateProvider) {
