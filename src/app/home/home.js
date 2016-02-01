@@ -1,11 +1,11 @@
-angular.module( 'ngVCI.home', [
+angular.module('ngVCI.home', [
 ])
 
-.config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
+.config(function config($stateProvider) {
+  $stateProvider.state('home', {
     url: '/home',
     views: {
-      "main": {
+      main: {
         controller: 'HomeCtrl',
         templateUrl: 'home/home.tpl.html'
       }

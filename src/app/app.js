@@ -6,7 +6,9 @@ angular.module('ngVCI', [
   'ngSanitize',
   'ui.router.state',
   'ui.bootstrap',
-  'ngVCI.home'
+  'ngVCI.home',
+  'ngVCI.login',
+  'ngVCI.signup'
 ])
 
 .config(['$locationProvider', function ($locationProvider) {
