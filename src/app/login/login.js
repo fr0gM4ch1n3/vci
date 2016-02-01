@@ -1,4 +1,7 @@
 angular.module('ngVCI.login', [
+  'ui.router.state',
+  'ui.router'
+  
 ])
 
 .config(function config($stateProvider) {
@@ -14,7 +17,7 @@ angular.module('ngVCI.login', [
   });
 })
 
-.controller('LoginCtrl', function LoginController($scope, $element) {
+.controller('LoginCtrl', function LoginController($scope, $element, $state) {
   $scope.username = '';
   $scope.loginName = '';
 

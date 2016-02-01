@@ -1,21 +1,22 @@
+
 <div>
 	<div class='login'>
-		<div class='input'>
+		<h2>Sign in</h2>
+		<div class='login-box'>
 			<div class="col-xs-12">
 				<p>Username</p>
 			</div>
 			<div class="col-xs-12">
-				<input ng-model="loginName" type="text" required>
-			</div></br></br>
-			<div class="col-xs-12">
-				<p>Password</p>
+				<input class="input-field" ng-model="loginName" type="text" required>
 			</div>
 			<div class="col-xs-12">
-				<input ng-model="password" type="text" required>
+				<p>Password</p>           
 			</div>
 			<div class="col-xs-12">
-				</br>
-				<button  ng-model="loginButton" class="btn btn-primary" ng-click="signin()">Login</button>
+				<input class="input-field" ng-model="password" type="text" required>
+			</div>
+			<div class="col-xs-12">
+				<button  class="btn login-button" ng-model="loginButton" class="btn btn-primary" ng-click="signin()">Sign in</button>
 			</div>
 		</div>
 	</div>
