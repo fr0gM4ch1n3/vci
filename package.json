@@ -46,6 +46,7 @@
     "load-grunt-configs": "*",
     "matchdep": "*",
     "npm": "^3.5.3",
-    "phantomjs": "*"
+    "phantomjs": "*",
+    "serve-static": "^1.10.2"
   }
 }
