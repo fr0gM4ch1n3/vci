@@ -29,7 +29,7 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js',
       'vendor/angular-translate/angular-translate.min.js',
       'vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
-      'vendor/angular-sanitize/angular-sanitize.min.js',
+      'vendor/angular-sanitize/angular-sanitize.min.js'
     ],
     css: [
     ],

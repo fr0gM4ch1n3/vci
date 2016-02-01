@@ -1,12 +1,9 @@
-/*jshint node: true*/
-
 module.exports = function (grunt) {
   'use strict';
-
+  
   grunt.option('stack', true);
   grunt.option('verbose', true);
   grunt.option('debug', true);
-
 
   var util = require('util');
 

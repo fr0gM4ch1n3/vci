@@ -12,6 +12,5 @@
     "bootstrap": "*",
     "font-awesome": "*"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
