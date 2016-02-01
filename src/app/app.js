@@ -19,7 +19,7 @@ angular.module('ngVCI', [
 }])
 
 .config(['$urlRouterProvider', function ($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/singup');
 }])
 
 .config(['$translateProvider', function ($translateProvider) {
