@@ -1,8 +1,10 @@
+'use strict';
+
 var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var BoardSchema   = new Schema({
-    _id : String,
+    _id : Schema.Types.ObjectId,
     users: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     title: String,
     description: String,

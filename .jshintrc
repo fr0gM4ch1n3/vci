@@ -20,6 +20,7 @@
   "browser": true,
   "devel": true,
   "nonstandard": true,
+  "globalstrict": true,
   "globals": {
     "requirejs": false,
     "define": false,
@@ -32,8 +33,11 @@
     "element": true,
     "by": true,
     "io": true,
+    "require": true,
     "_": false,
-    "$": false
+    "__dirname": true,
+    "$": false,
+    "module": true
   },
 
   "overrides":  {
