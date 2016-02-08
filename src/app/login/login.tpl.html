@@ -1,13 +1,12 @@
-
-<div>
-	<div class='login'>
-		<h2 class='login-title'>Sign in</h2>	
-		<div class='login-box'>
+<div class="login-box">
+	<div>
+		<h2>Sign in</h2>
+		<div class="row">
 			<div class="col-xs-12">
 				<p>Username</p>
 			</div>
 			<div class="col-xs-12">
-				<input class="input-field" ng-model="loginName" type="text" required>
+				<input class="input-field" ng-model="username" type="text" required>
 			</div>
 			<div class="col-xs-12">
 				<p>Password</p>         
@@ -21,6 +20,16 @@
 			<div class="col-xs-12">
 				<a ng-href='/passwordReset'>Can't access your account?</a>
 		    </div>
+		</div>
+		<br/>
+		<div class="row">
+			<div class="col-xs-12">
+				<br/>
+				<div class='new-account'>
+					<a ng-href='/signup'>Create an account</a>
+			    </div>
+			    <br/>
+			</div>
 		</div>
 	</div>
 </div>
