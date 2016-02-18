@@ -1,1 +1,3 @@
-console.log('app.js is saying hello :)');
+var board = require('./board/management');
+console.log("Starting board!");
+board.start();

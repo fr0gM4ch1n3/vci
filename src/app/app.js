@@ -6,6 +6,7 @@ angular.module('ngVCI', [
   'ngSanitize',
   'ui.router.state',
   'ui.bootstrap',
+  'btford.socket-io'
   'ngVCI.home',
   'ngVCI.board'
 ])
