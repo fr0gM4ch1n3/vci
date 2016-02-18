@@ -10,7 +10,8 @@
     "angular-mocks": "*",
     "angular-sanitize": "*",
     "bootstrap": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "angular-socket-io": "^0.7.0"
   },
   "dependencies": {}
 }
