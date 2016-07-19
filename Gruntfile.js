@@ -1,7 +1,11 @@
 module.exports = function (grunt) {
+  'use strict';
+  
   grunt.option('stack', true);
   grunt.option('verbose', true);
   grunt.option('debug', true);
+
+  var util = require('util');
 
   // require('jit-grunt')(grunt, {
   //   delta: 'grunt/delta.js'
@@ -27,14 +31,13 @@ module.exports = function (grunt) {
   grunt.renameTask('watch', 'delta');
   grunt.registerTask('watch', ['build', 'karma:unit', 'delta']);
 
-  // grunt.registerTask('default', ['build', 'test', 'compile']);
-  grunt.registerTask('default', ['build', 'compile']);
-
+  grunt.registerTask('default', ['build', 'test', 'compile']);
+  
   grunt.registerTask('build', [
-    'clean', 'html2js', 'jshint', /*'jscs',*/ 'less:build',
+    'clean', 'html2js', 'jshint', 'jscs', 'less:build',
     'copy:build_i18n', 'concat:build_css', 'copy:build_app_assets',
-    'copy:build_vendor_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'index:build'/*,
-    'karmaconfig', 'karma:continuous'*/
+    'copy:build_vendor_assets', 'copy:build_appjs', 'copy:build_vendorjs', 'index:build',
+    'karmaconfig', 'karma:continuous'
   ]);
 
   grunt.registerTask('compile', [
@@ -47,7 +50,7 @@ module.exports = function (grunt) {
   ]);
    
   grunt.registerTask('dev', [
-    'build', 'serve', 'delta'
+    'build', 'node-inspector', 'serve', 'delta'
   ]);
 
   grunt.registerTask('serve', [
@@ -76,7 +79,7 @@ module.exports = function (grunt) {
     });
 
     grunt.file.copy('src/index.html', this.data.dir + '/index.html', {
-      process: function (contents, path) {
+      process: function (contents) {
         var data = grunt.config(grunt.task.current.name)[grunt.task.current.target];
 
         return grunt.template.process(contents, {
@@ -94,7 +97,7 @@ module.exports = function (grunt) {
   grunt.registerMultiTask('karmaconfig', 'Process karma config templates', function () {
     var jsFiles = filterForJS(this.filesSrc);    
     grunt.file.copy('karma/karma-unit.tpl.js', grunt.config('build_dir') + '/karma-unit.js', { 
-      process: function (contents, path) {
+      process: function (contents) {
         return grunt.template.process(contents, {
           data: {
             scripts: jsFiles
@@ -102,5 +105,50 @@ module.exports = function (grunt) {
         });
       }
     });
+  });
+
+  grunt.registerMultiTask('node-inspector', 'Starting server with node-inspector', function () {
+    var options = this.options();
+    var done = this.async();
+    var args = [require.resolve('./server/app.js')];
+    var pushArg = function (option, val) {
+      args.push('--' + option);
+      args.push(val);
+    };
+    [
+      'debug-port',
+      'web-host',
+      'web-port',
+      'save-live-edit',
+      'preload',
+      'hidden',
+      'stack-trace-limit',
+      'ssl-key',
+      'ssl-cert'
+    ].forEach(function (option) {
+      if (option in options) {
+        if (util.isArray(options[option])) {
+          options[option].forEach(function (val) {
+            pushArg(option, val);
+          });
+        } else {
+          pushArg(option, options[option]);
+        }
+      }
+    });
+
+    grunt.util.spawn({
+      cmd: 'node-debug',
+      args: args,
+      opts: {
+        stdio: 'inherit'
+      }
+    },
+    function (error) {
+      if (error) {
+        grunt.fail.fatal(error);
+      }
+    });
+    done();
   });
 };

@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "express": "^4.13.3"
-    },
+  },
   "devDependencies": {
     "connect-modrewrite": "*",
     "grunt": "*",
@@ -33,8 +33,10 @@
     "grunt-html2js": "*",
     "grunt-jscs": "*",
     "grunt-karma": "*",
+    "grunt-manifest": "^0.4.4",
     "grunt-ng-annotate": "*",
     "grunt-ng-constant": "*",
+    "grunt-node-inspector": "^0.4.1",
     "jasmine-core": "*",
     "jscs-stylish": "*",
     "jshint-stylish": "*",
@@ -45,6 +47,7 @@
     "load-grunt-configs": "*",
     "matchdep": "*",
     "npm": "^3.5.3",
-    "phantomjs": "*"
+    "phantomjs": "*",
+    "serve-static": "^1.10.2"
   }
 }

@@ -1,32 +1,24 @@
+<div class="center-wrapper fullscreen">
+    <div class="center-box">
+        <h2>Create your personal account</h2> 
 
-<div>
-  <div class='signup'>
-    <h2 class='signup-title'>Create your personal account</h2>  
-    <div class='signup-box'>
-      <div class="col-xs-12">
-        <p>Username</p>
-      </div>
-      <div class="col-xs-12">
-        <input class="input-field" ng-model="username" type="text" required>
-      </div>
-      <div class="col-xs-12">
-        <p>Email address</p>         
-      </div>
-      <div class="col-xs-12">
-        <input class="input-field" ng-model="email" type="text" required>
-      </div>
-      <div class="col-xs-12">
-        <p>Password</p>         
-      </div>
-      <div class="col-xs-12">
-        <input class="input-field" ng-model="password" type="text" required>
-      </div>
-      <div class="col-xs-12">
-        <button  class="btn signup-button" ng-model="signupButton" class="btn btn-primary" ng-click="signup()">Create an account</button>
-      </div>
-      <div class="col-xs-12">
-        <p>By clicking on "Create an account" below, you are agreeing to the Terms of Service and the Privacy Policy.</p>
-      </div>
+        <form class="form-horizontal login-box" role="form" ng-submit="signup()">
+            <div>
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Email" ng-model="username">
+            </div>
+            <div>
+                <label for="email" class="control-label">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Password" ng-model="email">
+            </div>
+            <div>
+                <label for="password" class="control-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-default btn-block login-button">Create an account</button>
+            </div>
+            <p>By clicking on "Create an account" below, you are agreeing to the Terms of Service and the Privacy Policy.</p>
+        </form>
     </div>
-  </div>
 </div>

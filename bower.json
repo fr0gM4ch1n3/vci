@@ -10,8 +10,9 @@
     "angular-mocks": "*",
     "angular-sanitize": "*",
     "bootstrap": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "fingerprintjs2": "~1.1.0",
+    "ngstorage": "^0.3.10"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

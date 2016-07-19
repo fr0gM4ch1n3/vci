@@ -17,12 +17,7 @@ angular.module('ngVCI.login', [
   });
 })
 
-.controller('LoginCtrl', function LoginController($scope, $element, $state) {
-  $scope.username = '';
-  $scope.loginName = '';
-
-  $scope.signin = function() {
-  };
+.controller('LoginCtrl', function LoginController($scope) {
 })
 
 ;

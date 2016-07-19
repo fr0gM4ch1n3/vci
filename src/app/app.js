@@ -6,20 +6,22 @@ angular.module('ngVCI', [
   'ngSanitize',
   'ui.router.state',
   'ui.bootstrap',
+  'ngStorage',
+  'jwt',
   'ngVCI.home',
   'ngVCI.login',
   'ngVCI.signup'
 ])
 
 .config(['$locationProvider', function ($locationProvider) {
-  $locationProvider.html5Mode({
+  /*$locationProvider.html5Mode({
     enabled: true,
-    requireBase: false
-  }).hashPrefix('!');
+    requireBase: true
+  }).hashPrefix('!');*/
 }])
 
 .config(['$urlRouterProvider', function ($urlRouterProvider) {
-  $urlRouterProvider.otherwise('/singup');
+  $urlRouterProvider.otherwise('/home');
 }])
 
 .config(['$translateProvider', function ($translateProvider) {
@@ -37,6 +39,26 @@ angular.module('ngVCI', [
   $translateProvider.use('en_US');
 }])
 
+.config(['$httpProvider', function ($httpProvider) {
+  $httpProvider.interceptors.push(['$q', '$location', '$localStorage', function ($q, $location, $localStorage) {
+    return {
+      request: function (config) {
+        config.headers = config.headers || {};
+        if ($localStorage.token) {
+          config.headers.Authorization = 'Bearer ' + $localStorage.token;
+        }
+        return config;
+      },
+      responseError: function (response) {
+        if (response.status === 401 || response.status === 403) {
+          $location.path('/signin');
+        }
+        return $q.reject(response);
+      }
+    };
+  }]);
+}])
+
 .run(['$rootScope', '$state', '$stateParams', '$location',
   function ($rootScope, $state, $stateParams, $location) {
     $rootScope.$state = $state;
@@ -45,7 +67,8 @@ angular.module('ngVCI', [
   }
 ])
 
-.controller('AppCtrl', ['$rootScope', '$scope', '$translate', function AppCtrl($rootScope, $scope, $translate) {
+.controller('AppCtrl', ['$rootScope', '$scope', '$translate', '$location', '$localStorage', 'jwt',
+  function AppCtrl($rootScope, $scope, $translate, $location, $localStorage, jwt) {
   $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
     if (angular.isDefined(toState.data.pageTitle)) {
       $scope.pageTitle = toState.data.pageTitle + ' | ngVCI' ;
@@ -62,6 +85,55 @@ angular.module('ngVCI', [
       $scope.language = key;
     }, function (key) {
       console.log('Something went wrong!');
+    });
+  };
+
+  $scope.signin = function () {
+    var formData = {
+      username: this.username,
+      password: this.password
+    };
+
+    jwt.signin(formData, function (res) {
+      $localStorage.token = res.data.token;
+      $scope.myDetails = res;
+    }, function () {
+      $rootScope.error = 'Failed to signin';
+    });
+    $scope.me();
+  };
+
+  $scope.signup = function () {
+    var formData = {
+      username: this.username,
+      email: this.email,
+      password: this.password
+    };
+
+    jwt.signup(formData, function (res) {
+      $localStorage.token = res.data.token;
+      $scope.myDetails = res;
+      $location.path('/');
+    }, function () {
+      $rootScope.error = 'Failed to signup';
+    });
+  };
+
+  $scope.me = function () {
+    jwt.me(function (res) {
+      $scope.myDetails = res;
+    }, function () {
+      $rootScope.error = 'Failed to fetch details';
+    });
+  };
+  $scope.me();
+
+  $scope.logout = function () {
+    jwt.logout(function () {
+      $scope.myDetails = {};
+      $location.path('/');
+    }, function () {
+      $rootScope.error = 'Failed to logout';
     });
   };
 }])

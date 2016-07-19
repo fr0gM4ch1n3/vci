@@ -1,73 +1,90 @@
 {
-    "unused": true,
-    "undef": true,
-    "latedef": "nofunc",
-    "noarg": true,
-    "indent": 4,
-    "forin": true,
-    "noempty": true,
-    "quotmark": true,
-    "maxdepth": 7,
-    "maxstatements": 50,
-    "maxerr": 100,
-    "eqeqeq": true,
-    "strict": true,
-    "camelcase": false,
-    "newcap": true,
-    "nonew": true,
-    "immed": true,
-    "es3": false,
+  "unused": true,
+  "undef": true,
+  "latedef": "nofunc",
+  "noarg": true,
+  "indent": 4,
+  "forin": true,
+  "noempty": true,
+  "quotmark": true,
+  "maxdepth": 7,
+  "maxstatements": 50,
+  "maxerr": 100,
+  "eqeqeq": true,
+  "strict": true,
+  "camelcase": false,
+  "newcap": true,
+  "nonew": true,
+  "immed": true,
+  "es3": false,
+  "browser": true,
+  "devel": true,
+  "nonstandard": true,
+  "globals": {
+    "requirejs": false,
+    "define": false,
+    "browser": false,
+    "by": false,
+    "element": false,
+    "jasmine": true,
+    "angular": true,
     "browser": true,
-    "devel": true,
-    "nonstandard": true,
-    "globals": {
+    "element": true,
+    "by": true,
+    "io": true,
+    "_": false,
+    "$": false
+  },
+
+  "overrides":  {
+    "**/*-test.js":  {
+      "globals":  {
         "requirejs": false,
         "define": false,
-		"browser": false,
-		"by": false,
-		"element": false
+        "jasmine": false,
+        "describe": false,
+        "xdescribe": false,
+        "it": false,
+        "xit": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "expect": false,
+        "pending": false,
+        "spyOn": false,
+        "addCustomEqualityTester": false,
+        "jsApiReporter": false,
+        "module": false,
+        "inject": false
+      }
     },
-
-    "overrides":  {
-        "**/*-test.js":  {
-            "globals":  {
-                "requirejs": false,
-                "define": false,
-                "jasmine": false,
-                "describe": false,
-                "xdescribe": false,
-                "it": false,
-                "xit": false,
-                "beforeEach": false,
-                "afterEach": false,
-                "expect": false,
-                "pending": false,
-                "spyOn": false,
-                "addCustomEqualityTester": false,
-                "jsApiReporter": false,
-                "module": false,
-                "inject": false
-            }
-        },
-		"**/*-integrationTest.js": {
-            "globals":  {
-                "requirejs": false,
-                "define": false,
-                "jasmine": false,
-                "describe": false,
-                "xdescribe": false,
-                "it": false,
-                "xit": false,
-                "beforeEach": false,
-                "afterEach": false,
-                "expect": false,
-                "pending": false,
-                "spyOn": false,
-                "addCustomEqualityTester": false,
-                "jsApiReporter": false,
-                "module": false,
-                "inject": false
-            }
-        }
+    "**/*-integrationTest.js": {
+      "globals":  {
+        "requirejs": false,
+        "define": false,
+        "jasmine": false,
+        "describe": false,
+        "xdescribe": false,
+        "it": false,
+        "xit": false,
+        "beforeEach": false,
+        "afterEach": false,
+        "expect": false,
+        "pending": false,
+        "spyOn": false,
+        "addCustomEqualityTester": false,
+        "jsApiReporter": false,
+        "module": false,
+        "inject": false
+      }
+    },
+    "Gruntfile.js": {
+      "node": true
+    },
+    "grunt/*.js": {
+      "node": true
+    },
+    "server/**.js": {
+      "node": true
     }
+  }
 }

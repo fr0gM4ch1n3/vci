@@ -16,11 +16,7 @@ angular.module('ngVCI.signup', [
   });
 })
 
-.controller('signupCtrl', function SignupController($scope, $element) {
-  $scope.person = {};
-
-  $scope.signup = function() {
-  };
+.controller('signupCtrl', function SignupController($scope) {
 })
 
 ;

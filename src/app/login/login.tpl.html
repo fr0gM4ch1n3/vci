@@ -1,26 +1,19 @@
+<div class="center-wrapper fullscreen">
+    <div class="center-box">
+        <h2>Sign in</h2>
 
-<div>
-	<div class='login'>
-		<h2 class='login-title'>Sign in</h2>	
-		<div class='login-box'>
-			<div class="col-xs-12">
-				<p>Username</p>
-			</div>
-			<div class="col-xs-12">
-				<input class="input-field" ng-model="loginName" type="text" required>
-			</div>
-			<div class="col-xs-12">
-				<p>Password</p>         
-			</div>
-			<div class="col-xs-12">
-				<input class="input-field" ng-model="password" type="text" required>
-			</div>
-			<div class="col-xs-12">
-				<button  class="btn login-button" ng-model="loginButton" class="btn btn-primary" ng-click="signin()">Sign in</button>
-			</div>
-			<div class="col-xs-12">
-				<a ng-href='/passwordReset'>Can't access your account?</a>
-		    </div>
-		</div>
-	</div>
+        <form class="form-horizontal login-box" role="form" ng-submit="signin()">
+            <div>
+                <label for="username" class="control-label">Username</label>
+                <input type="text" class="form-control" id="username" placeholder="Username" ng-model="username">
+            </div>
+            <div>
+                <label for="password" class="control-label">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" ng-model="password">
+            </div>
+            <div>
+                <button type="submit" class="btn btn-default btn-block login-button">Sign in</button>
+            </div>
+        </form>
+    </div>
 </div>

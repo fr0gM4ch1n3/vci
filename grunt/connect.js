@@ -14,14 +14,14 @@ module.exports = {
         if (!Array.isArray(options.base)) {
           options.base = [options.base];
         }
-        
-         var middlewares = [];
+
+        var middlewares = [];
 
         // Setup the proxy
         middlewares.push(require('grunt-connect-proxy/lib/utils').proxyRequest);
 
         // Setup the HTML5 rewrite
-        middlewares.push(require('connect-modrewrite')(['!(\\..+)$ / [L]']));
+        // middlewares.push(require('connect-modrewrite')(['!(\\..+)$ / [L]']));
 
 
         // Serve static files.
@@ -34,24 +34,23 @@ module.exports = {
         // middlewares.push(connect.directory(directory));
 
         return middlewares;
-
       }
     },
     proxies: [
       {
         context: '/api/',
         host: '127.0.0.1',
-        port: 8080,
+        port: 3001,
         https: false,
         xforward: true,
         debug: true,
         headers: {
           'X-Backend': 'api'
         },
-        hideHeaders: [],
-        rewrite: {
-          '^/api/': '/'
-        }
+        hideHeaders: [] // ,
+        // rewrite: {
+        //   '^/api/': '/'
+        // }
       }
     ]
   }

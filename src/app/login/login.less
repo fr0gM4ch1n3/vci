@@ -1,62 +1,52 @@
-.login {
-	position: relative;
-	/*width: 100%;
-	height: 100%;*/
-	margin-left: 20%;
-	margin-top: 10%;
-	margin-bottom: 10%;
-	margin-right: 20%;
-/*	border-radius: 5px;
-    border: 1px solid #D8DEE2;*/
+.fullscreen {
+	position: absolute !important;
+    left: 0px !important;
+    top: 0px !important;
+	width: 100vw !important;
+	height: 100vh !important;
 }
 
-.login-box {
+.center-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.center-box {
 	position: absolute;
-	vertical-align: center;
-	margin-left: 20%;
-	margin-right: 20%;
-	margin-top: 10%;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+h2 {
+	color: #a64dff;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+label.control-label {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+}
+
+
+.login-box {
 	border-radius: 5px;
+	padding: 16px;
     border: 1px solid #D8DEE2;
 }
 
 .input-field {
-	width: 100%;
-	margin-bottom: 10px;
 	font-family: "Times New Roman", Times, serif
 }
 
 
 .login-button {
-	width: 100%;
-	margin-bottom: 20px;
 	background-color: #d9b3ff;
 	/*border: 1px solid #7f00ff;*/
 	font-size: 14px;
 	font-family: "Times New Roman", Times, serif;
 	border-radius: 3px;
-}
-
-.login-button:hover {
-	width: 100%;
-	margin-bottom: 20px;
-	background-color: #7f00ff;
-	/*border: 1px solid #7f00ff;*/
-	font-size: 14px;
-	color: #fff;
-	font-family: "Times New Roman", Times, serif;
-	border-radius: 3px;
-}
-
-
-h2.login-title {
-	margin-left: 20%;
-	margin-bottom: 0px;
-	color: #a64dff;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-}
-
-p {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 14px;
+    margin-top: 16px;
 }

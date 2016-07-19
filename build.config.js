@@ -30,6 +30,8 @@ module.exports = {
       'vendor/angular-translate/angular-translate.min.js',
       'vendor/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'vendor/angular-sanitize/angular-sanitize.min.js',
+      'vendor/ngstorage/ngStorage.min.js',
+      'vendor/fingerprintjs2/dist/fingerprint2.min.js'
     ],
     css: [
     ],
